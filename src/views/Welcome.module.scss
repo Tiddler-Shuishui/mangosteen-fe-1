@@ -1,8 +1,9 @@
 .wrapper {
-    height: 100vh;
+    height: calc(100vh - var(--welcome-nav-height));
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #5C33BE 0%, #8F4CD7 100%);
+    background: linear-gradient(180deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%);
+    margin-bottom: var(--welcome-nav-height);
     > header {
         flex-shrink: 0;
         display: flex;
