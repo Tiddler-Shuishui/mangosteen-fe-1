@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { Button } from '../shared/Button';
+import { Icon } from '../shared/Icon';
 import s from './StartPage.module.scss';
 export const StartPage = defineComponent({
   setup: (props, context) => {
@@ -11,6 +12,7 @@ export const StartPage = defineComponent({
         <div class={s.button_wrapper}>
           <Button class={s.button} onClick={onClick}>测试</Button>
         </div>
+        <Icon name='add'/>
       </div>
     )
   }
