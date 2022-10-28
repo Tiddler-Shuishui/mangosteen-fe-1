@@ -28,6 +28,7 @@ export const InputPad = defineComponent({
       { text: '9', onClick: () => { appendText(9) } },
       { text: '.', onClick: () => { appendText('.') } },
       { text: '0', onClick: () => { appendText(0) } },
+      { text: '删除', onclick: () => {} },
       { text: '提交', onClick: () => { } },
     ]
     const refDatePickerVisible = ref(false)
