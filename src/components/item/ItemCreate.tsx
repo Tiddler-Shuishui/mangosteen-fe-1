@@ -1,7 +1,7 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { MainLayout } from '../../layouts/MainLayout';
 import { Icon } from '../../shared/Icon';
-import { Tab, Tabs } from '../../shared/Tabs';
+import { Tabs, Tab } from '../../shared/Tabs';
 import { InputPad } from './InputPad';
 import s from './ItemCreate.module.scss';
 export const ItemCreate = defineComponent({
@@ -63,7 +63,7 @@ export const ItemCreate = defineComponent({
         title: () => '记一笔',
         icon: () => <Icon name="left" class={s.navIcon} />,
         default: () => <>
-            <div class={s.wrapper}>
+          <div class={s.wrapper}>
             <Tabs v-model:selected={refKind.value} class={s.tabs}>
               <Tab name="支出" class={s.tags_wrapper}>
                 <div class={s.tag}>
@@ -111,7 +111,7 @@ export const ItemCreate = defineComponent({
             </div>
           </div>
         </>
-    }}</MainLayout>
+      }}</MainLayout>
     )
   }
 })
