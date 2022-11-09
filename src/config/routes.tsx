@@ -43,5 +43,10 @@ export const routes: RouteRecordRaw[] = [
             {path: 'create', component: TagCreate},
             {path: ':id/edit',component: TagEdit}
         ]
-    }
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        redirect:'/start'
+    },
+
 ]
