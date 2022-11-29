@@ -1,5 +1,6 @@
 import { DatetimePicker, Popup } from 'vant';
 import { computed, defineComponent, PropType, ref, VNode } from 'vue';
+import { Button } from './Button';
 import { EmojiSelect } from './EmojiSelect';
 import s from './Form.module.scss';
 import { Time } from './time';
@@ -28,12 +29,14 @@ export const FormItem = defineComponent({
       type: [String, Number]
     },
     type: {
-      type: String as PropType<'text' | 'emojiSelect' | 'date'>,
+      type: String as PropType<'text' | 'emojiSelect' | 'date' | 'validationCode'>,
     },
     error: {
       type: String
-    }
+    },
+    placeholder: String,
   },
+  emits:['update:modelValue'],
   setup: (props, context) => {
     const refDateVisible = ref(false)
     const content = computed(() => {
@@ -41,6 +44,7 @@ export const FormItem = defineComponent({
         case 'text':
           return <input
             value={props.modelValue}
+            placeholder={props.placeholder}
             onInput={(e: any) => context.emit('update:modelValue', e.target.value)}
             class={[s.formItem, s.input]} />
         case 'emojiSelect':
@@ -61,6 +65,12 @@ export const FormItem = defineComponent({
               }}
               onCancel={() => refDateVisible.value = false} />
           </Popup></>
+        case 'validationCode':
+          return <>
+            <input class={[s.formItem,s.input,s.validationCodeInput]}
+              placeholder={props.placeholder} />
+            <Button class={[s.formItem, s.button, s.validationCodeButton]}>发送验证码</Button>
+          </>
         case undefined:
           return context.slots.default?.()
       }
@@ -74,11 +84,9 @@ export const FormItem = defineComponent({
           <div class={s.formItem_value}>
             {content.value}
           </div>
-          {props.error &&
-            <div class={s.formItem_errorHint}>
-              <span>{props.error}</span>
-            </div>
-          }
+          <div class={s.formItem_errorHint}>
+            <span>{props.error ?? '  '}</span>
+          </div>
         </label>
       </div>
     }
