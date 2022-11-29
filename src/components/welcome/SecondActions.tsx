@@ -8,3 +8,5 @@ export const SecondActions: FunctionalComponent = () => {
     <RouterLink replace to="/start" >跳过</RouterLink>
   </div>
 }
+
+SecondActions.displayName = 'SecondActions'

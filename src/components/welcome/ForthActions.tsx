@@ -7,3 +7,5 @@ export const ForthActions = () => (
     <RouterLink class={s.fake} replace to="/start" >跳过</RouterLink>
   </div>
 )
+
+ForthActions.displayName = 'ForthActions'

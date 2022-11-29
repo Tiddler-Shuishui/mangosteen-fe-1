@@ -8,3 +8,5 @@ export const ThirdActions: FunctionalComponent = () => {
     <RouterLink replace to="/start" >跳过</RouterLink>
   </div>
 }
+
+ThirdActions.displayName = 'ThirdActions'
