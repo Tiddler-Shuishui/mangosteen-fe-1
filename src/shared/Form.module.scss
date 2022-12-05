@@ -35,6 +35,12 @@
     margin-left: 16px;
   }
 
+  &.select{
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-radius);
+    padding: 0 8px;
+  }
+
   &_name {
   }
   &_value {
