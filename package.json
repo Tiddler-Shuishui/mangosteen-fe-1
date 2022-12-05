@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "echarts": "^5.4.0",
     "sass": "^1.55.0",
     "vant": "3.4.8",
     "vue": "^3.2.25",
