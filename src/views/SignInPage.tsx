@@ -1,5 +1,6 @@
 import axios from "axios"
 import { defineComponent, reactive, ref } from "vue"
+import { useBool } from "../hooks/useBool"
 import { MainLayout } from "../layouts/MainLayout"
 import { Form, FormItem } from "../shared/Form"
 import { http } from "../shared/Http"
@@ -34,9 +35,12 @@ export const SignInPage = defineComponent({
         {key: 'code', type: 'required', message: '必填'}
       ]))
     }
+    const {ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
     const onClickSendValidationCode = async () => {
+      disabled()
       const response = await http.post('/validation_codes',{email: formData.email})
       .catch(onError)
+      .finally(enable)
       // 成功
       refValidationCode.value.startCount()
     }
@@ -58,6 +62,7 @@ export const SignInPage = defineComponent({
                 <FormItem ref={refValidationCode} label="验证码" type="validationCode"
                 v-model={formData.code}
                 placeholder="请输入六位数字"
+                disabled={refDisabled.value} 
                 countForm={60}
                 onClick={onClickSendValidationCode} />
               </Form>
