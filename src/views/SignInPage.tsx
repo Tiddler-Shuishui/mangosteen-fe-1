@@ -2,10 +2,11 @@ import axios from "axios"
 import { defineComponent, reactive, ref } from "vue"
 import { useBool } from "../hooks/useBool"
 import { MainLayout } from "../layouts/MainLayout"
+import { Button } from "../shared/Button"
 import { Form, FormItem } from "../shared/Form"
 import { http } from "../shared/Http"
 import { Icon } from "../shared/Icon"
-import { validate } from "../shared/validate"
+import { hasError, validate } from "../shared/validate"
 import s from './SignInPage.module.scss'
 export const SignInPage = defineComponent({
   setup: (props, context) => {
@@ -24,7 +25,8 @@ export const SignInPage = defineComponent({
       throw error
     }
     const refValidationCode = ref<any>()
-    const onSubmit = (e: Event) => {
+    const onSubmit = async (e: Event) => {
+      console.log('submit')
       e.preventDefault()
       Object.assign(errors,{
         email:[],code:[]
@@ -34,6 +36,9 @@ export const SignInPage = defineComponent({
         {key: 'email', type: 'pattern', regex: /.+@.+/, message: '必须是邮箱地址'},
         {key: 'code', type: 'required', message: '必填'}
       ]))
+      if(!hasError(errors)){
+        const response = await http.post('/session', formData)
+      }
     }
     const {ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
     const onClickSendValidationCode = async () => {
@@ -60,11 +65,14 @@ export const SignInPage = defineComponent({
                 placeholder="请输入邮箱，然后点击发送验证码"
                 v-model={formData.email} error={errors.email?.[0]} />
                 <FormItem ref={refValidationCode} label="验证码" type="validationCode"
-                v-model={formData.code}
+                v-model={formData.code} error={errors.code?.[0]}
                 placeholder="请输入六位数字"
                 disabled={refDisabled.value} 
                 countForm={60}
                 onClick={onClickSendValidationCode} />
+                <FormItem style={{ paddingTop: '96px' }}>
+                  <Button type="submit">登录</Button>
+                </FormItem>
               </Form>
             </div>
           )
