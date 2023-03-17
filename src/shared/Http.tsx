@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { Mock, mockSession } from "../mock/mock";
+import { Mock, mockSession, mockTagIndex } from "../mock/mock";
 
 type GetConfig = Omit<AxiosRequestConfig,'params' | 'url' | 'method'>
 type PostConfig = Omit<AxiosRequestConfig, 'url' | 'data' | 'method'>
@@ -30,7 +30,7 @@ export class Http {
 }
 
 const mockList:Record<string, Mock> = {
-  // 'tagIndex': mockTagIndex,
+  'tagIndex': mockTagIndex,
   // 'itemCreate': mockItemCreate,
   // 'itemIndex': mockItemIndex,
   // 'tagCreate': mockTagCreate,
