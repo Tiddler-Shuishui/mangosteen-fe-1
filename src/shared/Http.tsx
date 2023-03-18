@@ -4,7 +4,15 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
 } from 'axios'
-import { Mock, mockItemCreate, mockSession, mockTagEdit, mockTagIndex, mockTagShow } from '../mock/mock'
+import {
+  Mock,
+  mockItemCreate,
+  mockItemIndex,
+  mockSession,
+  mockTagEdit,
+  mockTagIndex,
+  mockTagShow,
+} from '../mock/mock'
 
 type GetConfig = Omit<AxiosRequestConfig, 'params' | 'url' | 'method'>
 type PostConfig = Omit<AxiosRequestConfig, 'url' | 'data' | 'method'>
@@ -65,6 +73,7 @@ const mockList: Record<string, Mock> = {
   itemCreate: mockItemCreate,
   tagShow: mockTagShow,
   tagEdit: mockTagEdit,
+  itemIndex: mockItemIndex,
   session: mockSession,
 }
 
@@ -77,7 +86,7 @@ const mock = (response: AxiosResponse) => {
 
   const mockName = response.config?.params?._mock
   if (Object.keys(mockList).includes(mockName)) {
-    ;[response.status, response.data] = mockList[mockName](response.config)
+    [response.status, response.data] = mockList[mockName](response.config)
     return true
   }
   return false
