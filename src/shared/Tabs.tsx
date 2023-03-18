@@ -58,7 +58,6 @@ export const Tab = defineComponent({
     },
   },
   setup: (props, context) => {
-    console.log(context)
     return () => <div>{context.slots.default?.()}</div>
   },
 })
