@@ -14,16 +14,16 @@ const whiteList: Record<string, 'exact' | 'startsWith'> = {
   '/': 'exact',
   '/start': 'exact',
   '/welcome': 'startsWith',
-  '/sign_in': 'startsWith'
+  '/sign_in': 'startsWith',
 }
 
-router.beforeEach((to,form)=>{
-  for(const key in whiteList){
+router.beforeEach((to, form) => {
+  for (const key in whiteList) {
     const value = whiteList[key]
-    if(value === 'exact' && to.path === key){
+    if (value === 'exact' && to.path === key) {
       return true
     }
-    if(value === 'startsWith' && to.path.startsWith(key)){
+    if (value === 'startsWith' && to.path.startsWith(key)) {
       return true
     }
   }

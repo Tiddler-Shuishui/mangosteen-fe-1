@@ -1,14 +1,17 @@
 import { faker } from '@faker-js/faker'
-import { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from 'axios'
 
 export type Mock = (config: AxiosRequestConfig) => [number, any]
 
 faker.setLocale('zh_CN')
 
 export const mockSession: Mock = (config) => {
-  return [200,{
-    jwt: faker.random.word()
-  }]
+  return [
+    200,
+    {
+      jwt: faker.random.word(),
+    },
+  ]
 }
 
 let id = 0
@@ -17,20 +20,23 @@ const createId = () => {
   return id
 }
 
-export const mockItemCreate: Mock = config => {
-  return [200,{
-    resource:{
-      id: 2264,
-      user_id: 1312,
-      amount: 9990,
-      note: null,
-      tags_id: [1204],
-      happen_at: "2020-10-29T16:00:00.000Z",
-      created_at: "2020-10-29T16:00:00.000Z",
-      updated_at: "2020-10-29T16:00:00.000Z",
-      kind: "expenses"
-    }
-  }]
+export const mockItemCreate: Mock = (config) => {
+  return [
+    200,
+    {
+      resource: {
+        id: 2264,
+        user_id: 1312,
+        amount: 9990,
+        note: null,
+        tags_id: [1204],
+        happen_at: '2020-10-29T16:00:00.000Z',
+        created_at: '2020-10-29T16:00:00.000Z',
+        updated_at: '2020-10-29T16:00:00.000Z',
+        kind: 'expenses',
+      },
+    },
+  ]
 }
 
 export const mockTagIndex: Mock = (config) => {
@@ -38,27 +44,30 @@ export const mockTagIndex: Mock = (config) => {
   const per_page = 25
   const count = 26
   const createPaper = (page = 1) => ({
-    page, per_page, count
+    page,
+    per_page,
+    count,
   })
-  const createTag = (n = 1, attrs?: any) => 
-    Array.from({length: n}).map(() => ({
+  const createTag = (n = 1, attrs?: any) =>
+    Array.from({ length: n }).map(() => ({
       id: createId(),
-      name:faker.lorem.word(),
+      name: faker.lorem.word(),
       sign: faker.internet.emoji(),
       kind: config.params.kind,
-      ...attrs
+      ...attrs,
     }))
-  const createBody = (n = 1, attrs?:any) => ({
-    resources: createTag(n), pager: createPaper(page)
+  const createBody = (n = 1, attrs?: any) => ({
+    resources: createTag(n),
+    pager: createPaper(page),
   })
 
-    if(kind === 'expenses' && (!page || page === 1)) {
-      return [200, createBody(25)]
-    } else if (kind === 'expenses' && page === 2) {
-      return [200, createBody(1)]
-    } else if (kind === 'income' && (!page || page === 1)){
-      return [200, createBody(25)]
-    } else {
-      return [200, createBody(1)]
-    }
+  if (kind === 'expenses' && (!page || page === 1)) {
+    return [200, createBody(25)]
+  } else if (kind === 'expenses' && page === 2) {
+    return [200, createBody(1)]
+  } else if (kind === 'income' && (!page || page === 1)) {
+    return [200, createBody(25)]
+  } else {
+    return [200, createBody(1)]
+  }
 }

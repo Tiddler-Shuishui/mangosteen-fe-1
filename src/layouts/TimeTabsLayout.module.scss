@@ -9,13 +9,14 @@
     background: var(--bg);
     width: 80vw;
 
-    >header {
+    > header {
       background: var(--main);
       padding: 12px 16px;
       color: var(--dialog-header-text);
     }
 
-    >main {}
+    > main {
+    }
   }
 }
 
@@ -27,7 +28,7 @@
     background: transparent;
     padding: 8px 16px;
 
-    &+& {
+    & + & {
       margin-left: 16px;
     }
   }

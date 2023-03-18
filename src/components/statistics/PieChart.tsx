@@ -1,19 +1,19 @@
 import * as echarts from 'echarts'
-import { defineComponent, onMounted, ref } from "vue"
-import s from "./PieChart.module.scss"
+import { defineComponent, onMounted, ref } from 'vue'
+import s from './PieChart.module.scss'
 export const PieChart = defineComponent({
-  setup: (props, context) => { 
+  setup: (props, context) => {
     const refDiv2 = ref()
-    
+
     onMounted(() => {
-      if (refDiv2.value === undefined) { return }
+      if (refDiv2.value === undefined) {
+        return
+      }
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(refDiv2.value);
+      var myChart = echarts.init(refDiv2.value)
       // 绘制图表
       const option = {
-        grid: [
-          { left: 0, top: 0, right: 0, bottom: 20 }
-        ],
+        grid: [{ left: 0, top: 0, right: 0, bottom: 20 }],
         series: [
           {
             name: 'Access From',
@@ -24,23 +24,21 @@ export const PieChart = defineComponent({
               { value: 735, name: 'Direct' },
               { value: 580, name: 'Email' },
               { value: 484, name: 'Union Ads' },
-              { value: 300, name: 'Video Ads' }
+              { value: 300, name: 'Video Ads' },
             ],
             emphasis: {
               itemStyle: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
-            }
-          }
-        ]
-      };
-      myChart.setOption(option);
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+        ],
+      }
+      myChart.setOption(option)
     })
 
-    return () => (
-      <div ref={refDiv2} class={s.wrapper}></div>
-    )
-  }
+    return () => <div ref={refDiv2} class={s.wrapper}></div>
+  },
 })

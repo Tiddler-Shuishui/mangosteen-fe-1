@@ -1,7 +1,7 @@
-.wrapper{
+.wrapper {
   margin-bottom: 128px;
 }
-.topItem{
+.topItem {
   margin-top: 16px;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
       overflow: hidden;
       margin-top: 4px;
     }
-    .bar_inner{
+    .bar_inner {
       position: absolute;
       top: 0;
       left: 0;
@@ -43,18 +43,18 @@
       width: 42px;
     }
   }
-  &:nth-child(1){
-    .bar_inner{
+  &:nth-child(1) {
+    .bar_inner {
       background-color: #eba953;
     }
   }
-  &:nth-child(2){
-    .bar_inner{
+  &:nth-child(2) {
+    .bar_inner {
       background-color: #53a867;
     }
   }
-  &:nth-child(3){
-    .bar_inner{
+  &:nth-child(3) {
+    .bar_inner {
       background-color: #91cc75;
     }
   }

@@ -1,5 +1,5 @@
-import { AxiosResponse } from "axios";
-import { onMounted, ref } from "vue";
+import { AxiosResponse } from 'axios'
+import { onMounted, ref } from 'vue'
 
 type Fetcher = (page: number) => Promise<AxiosResponse<Resources<Tag>>>
 export const useTags = (fetcher: Fetcher) => {
@@ -10,7 +10,8 @@ export const useTags = (fetcher: Fetcher) => {
     const response = await fetcher(page.value)
     const { resources, pager } = response.data
     tags.value.push(...resources)
-    hasMore.value = (pager.page - 1) * pager.per_page + resources.length < pager.count
+    hasMore.value =
+      (pager.page - 1) * pager.per_page + resources.length < pager.count
     page.value += 1
   }
   onMounted(fetchTags)

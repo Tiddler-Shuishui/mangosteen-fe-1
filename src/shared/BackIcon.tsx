@@ -6,10 +6,10 @@ export const BackIcon = defineComponent({
     const route = useRoute()
     const router = useRouter()
     const onClick = () => {
-      const {return_to} = route.query
-      if(return_to){
+      const { return_to } = route.query
+      if (return_to) {
         router.push(return_to.toString())
-      }else{
+      } else {
         router.back()
       }
     }

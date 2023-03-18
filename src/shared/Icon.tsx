@@ -1,18 +1,31 @@
-import { defineComponent, PropType } from 'vue';
-import s from './Icon.module.scss';
+import { defineComponent, PropType } from 'vue'
+import s from './Icon.module.scss'
 
-export type IconName = 'add' | 'chart' | 'clock' | 'cloud' | 'mangosteen' | 'pig' | 'menu' | 'charts' | 
-'notify' | 'export' | 'classify' | 'left' | 'notes' | 'date'
+export type IconName =
+  | 'add'
+  | 'chart'
+  | 'clock'
+  | 'cloud'
+  | 'mangosteen'
+  | 'pig'
+  | 'menu'
+  | 'charts'
+  | 'notify'
+  | 'export'
+  | 'classify'
+  | 'left'
+  | 'notes'
+  | 'date'
 
 export const Icon = defineComponent({
   props: {
     name: {
       type: String as PropType<IconName>,
-      required: true
+      required: true,
     },
     onClick: {
-      type: Function as PropType<(e: MouseEvent) => void>
-    }
+      type: Function as PropType<(e: MouseEvent) => void>,
+    },
   },
   setup: (props, context) => {
     return () => (
@@ -20,5 +33,5 @@ export const Icon = defineComponent({
         <use xlinkHref={'#' + props.name}></use>
       </svg>
     )
-  }
+  },
 })
