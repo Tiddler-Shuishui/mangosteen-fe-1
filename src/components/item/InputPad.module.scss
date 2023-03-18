@@ -1,4 +1,4 @@
-.dateAndAmount{
+.dateAndAmount {
   background: var(--overlay-bg);
   display: flex;
   justify-content: space-between;
@@ -6,19 +6,19 @@
   padding: 16px;
   font-family: monospace;
   border-top: 1px solid var(--button-border-color);
-  >.date{
+  > .date {
     font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: start;
     color: var(--date-text);
-    .icon{
+    .icon {
       width: 24px;
       height: 24px;
       margin-right: 8px;
     }
   }
-  >.amount{
+  > .amount {
     font-size: 20px;
     color: var(--amount-text);
   }
@@ -26,10 +26,10 @@
 .buttons {
   display: grid;
   grid-template-areas:
-    "n1 n2 n3 d"
-    "n4 n5 n6 d"
-    "n7 n8 n9 s"
-    "n0 n0 nd s";
+    'n1 n2 n3 d'
+    'n4 n5 n6 d'
+    'n7 n8 n9 s'
+    'n0 n0 nd s';
   grid-auto-rows: 48px;
   grid-auto-columns: 1fr;
   gap: 1px;
