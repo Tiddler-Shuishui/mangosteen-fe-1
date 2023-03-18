@@ -8,6 +8,7 @@ import {
   Mock,
   mockItemCreate,
   mockItemIndex,
+  mockItemIndexBalance,
   mockSession,
   mockTagEdit,
   mockTagIndex,
@@ -75,6 +76,7 @@ const mockList: Record<string, Mock> = {
   tagEdit: mockTagEdit,
   itemIndex: mockItemIndex,
   session: mockSession,
+  itemIndexBalance: mockItemIndexBalance,
 }
 
 const mock = (response: AxiosResponse) => {
@@ -86,7 +88,7 @@ const mock = (response: AxiosResponse) => {
 
   const mockName = response.config?.params?._mock
   if (Object.keys(mockList).includes(mockName)) {
-    [response.status, response.data] = mockList[mockName](response.config)
+    ;[response.status, response.data] = mockList[mockName](response.config)
     return true
   }
   return false
