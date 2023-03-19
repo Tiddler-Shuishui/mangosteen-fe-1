@@ -22,6 +22,10 @@ export const TimeTabsLayout = defineComponent({
       type: Object as PropType<typeof demo>,
       required: true,
     },
+    rerenderOnSwitchTab: {
+      type: Boolean,
+      default: false
+    }
   },
   setup: (props, context) => {
     const refSelected = ref('本月')
@@ -69,7 +73,7 @@ export const TimeTabsLayout = defineComponent({
               <Tabs
                 classPrefix={'customTabs'}
                 v-model:selected={refSelected.value}
-                onUpdate:selected={onSelect}
+                onUpdate:selected={onSelect} rerenderOnSelect={props.rerenderOnSwitchTab}
               >
                 <Tab name="本月">
                   <props.component
