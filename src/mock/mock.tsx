@@ -10,13 +10,13 @@ export const mockItemSummary: Mock = (config) => {
     200,
     {
       groups: [
-        { happen_at: '2022-06-18T00:00:00.000+0800', amount: 100 },
-        { happen_at: '2022-06-19T00:00:00.000+0800', amount: 200 },
-        { happen_at: '2022-06-20T00:00:00.000+0800', amount: 300 },
-        { happen_at: '2022-06-21T00:00:00.000+0800', amount: 0 },
-        { happen_at: '2022-06-22T00:00:00.000+0800', amount: 0 },
-        { happen_at: '2022-06-23T00:00:00.000+0800', amount: 0 },
-        { happen_at: '2022-06-24T00:00:00.000+0800', amount: 0 }
+        { happen_at: '2023-03-18T00:00:00.000+0800', amount: 100 },
+        { happen_at: '2023-03-19T00:00:00.000+0800', amount: 200 },
+        { happen_at: '2023-03-20T00:00:00.000+0800', amount: 300 },
+        { happen_at: '2023-03-21T00:00:00.000+0800', amount: 0 },
+        { happen_at: '2023-03-22T00:00:00.000+0800', amount: 0 },
+        { happen_at: '2023-03-23T00:00:00.000+0800', amount: 0 },
+        { happen_at: '2023-03-24T00:00:00.000+0800', amount: 0 }
       ],
       summary: 600
     }
