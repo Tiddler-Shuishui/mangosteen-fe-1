@@ -25,6 +25,10 @@ export const TimeTabsLayout = defineComponent({
     rerenderOnSwitchTab: {
       type: Boolean,
       default: false
+    },
+    hideThisYear: {
+      type: Boolean,
+      default: false
     }
   },
   setup: (props, context) => {
@@ -82,12 +86,20 @@ export const TimeTabsLayout = defineComponent({
                 <Tab name="上月">
                   <props.component startDate={timeList[1].start.format()} endDate={timeList[1].end.format()} />
                 </Tab>
-                <Tab name="今年">
-                  <props.component startDate={timeList[2].start.format()} endDate={timeList[2].end.format()} />
-                </Tab>
-                <Tab name="自定义时间">
-                  <props.component startDate={customTime.start} endDate={customTime.end} />
-                </Tab>
+                {props.hideThisYear ? (
+                  <Tab name="自定义时间">
+                    <props.component startDate={customTime.start} endDate={customTime.end} />
+                  </Tab>
+                ) : (
+                  <>
+                    <Tab name="今年">
+                      <props.component startDate={timeList[2].start.format()} endDate={timeList[2].end.format()} />
+                    </Tab>
+                    <Tab name="自定义时间">
+                      <props.component startDate={customTime.start} endDate={customTime.end} />
+                    </Tab>
+                  </>
+                )}
               </Tabs>
               <Overlay show={refOverlayVisible.value} class={s.overlay}>
                 <div class={s.overlay_inner}>
