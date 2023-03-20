@@ -14,10 +14,7 @@ interface Options {
   afterEnd?: (e: TouchEvent) => void
 }
 
-export const useSwipe = (
-  element: Ref<HTMLElement | undefined>,
-  options?: Options
-) => {
+export const useSwipe = (element: Ref<HTMLElement | undefined>, options?: Options) => {
   const start = ref<Point>()
   const end = ref<Point>()
   const swiping = ref(false)
@@ -27,7 +24,7 @@ export const useSwipe = (
     }
     return {
       x: end.value.x - start.value.x,
-      y: end.value.y - start.value.y,
+      y: end.value.y - start.value.y
     }
   })
   const direction = computed(() => {
@@ -46,7 +43,7 @@ export const useSwipe = (
     swiping.value = true
     end.value = start.value = {
       x: e.touches[0].screenX,
-      y: e.touches[0].screenY,
+      y: e.touches[0].screenY
     }
     options?.afterStart?.(e)
   }

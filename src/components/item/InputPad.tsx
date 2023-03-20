@@ -8,8 +8,8 @@ export const InputPad = defineComponent({
     happenAt: String,
     amount: Number,
     onSubmit: {
-      type: Function as PropType<() => void>,
-    },
+      type: Function as PropType<() => void>
+    }
   },
   emits: ['update:happenAt', 'update:amount'],
   setup: (props, context) => {
@@ -48,81 +48,81 @@ export const InputPad = defineComponent({
         text: '1',
         onClick: () => {
           appendText(1)
-        },
+        }
       },
       {
         text: '2',
         onClick: () => {
           appendText(2)
-        },
+        }
       },
       {
         text: '3',
         onClick: () => {
           appendText(3)
-        },
+        }
       },
       {
         text: '4',
         onClick: () => {
           appendText(4)
-        },
+        }
       },
       {
         text: '5',
         onClick: () => {
           appendText(5)
-        },
+        }
       },
       {
         text: '6',
         onClick: () => {
           appendText(6)
-        },
+        }
       },
       {
         text: '7',
         onClick: () => {
           appendText(7)
-        },
+        }
       },
       {
         text: '8',
         onClick: () => {
           appendText(8)
-        },
+        }
       },
       {
         text: '9',
         onClick: () => {
           appendText(9)
-        },
+        }
       },
       {
         text: '.',
         onClick: () => {
           appendText('.')
-        },
+        }
       },
       {
         text: '0',
         onClick: () => {
           appendText(0)
-        },
+        }
       },
       {
         text: '清空',
         onClick: () => {
           refAmount.value = '0'
-        },
+        }
       },
       {
         text: '提交',
         onClick: () => {
           context.emit('update:amount', parseFloat(refAmount.value) * 100)
           props.onSubmit?.()
-        },
-      },
+        }
+      }
     ]
     const refDatePickerVisible = ref(false)
     const showDatePicker = () => (refDatePickerVisible.value = true)
@@ -138,13 +138,8 @@ export const InputPad = defineComponent({
           <span class={s.date}>
             <Icon name="date" class={s.icon} />
             <span>
-              <span onClick={showDatePicker}>
-                {new Time(props.happenAt).format()}
-              </span>
-              <Popup
-                position="bottom"
-                v-model:show={refDatePickerVisible.value}
-              >
+              <span onClick={showDatePicker}>{new Time(props.happenAt).format()}</span>
+              <Popup position="bottom" v-model:show={refDatePickerVisible.value}>
                 <DatetimePicker
                   value={props.happenAt}
                   type="date"
@@ -164,5 +159,5 @@ export const InputPad = defineComponent({
         </div>
       </>
     )
-  },
+  }
 })

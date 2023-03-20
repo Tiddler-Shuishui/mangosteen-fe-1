@@ -4,11 +4,11 @@ import s from './EmojiSelect.module.scss'
 export const EmojiSelect = defineComponent({
   props: {
     modelValue: {
-      type: String,
+      type: String
     },
     onUpdateModelValue: {
-      type: Function as PropType<(emoji: string) => void>,
-    },
+      type: Function as PropType<(emoji: string) => void>
+    }
   },
   setup: (props, context) => {
     const refSelected = ref(1)
@@ -27,8 +27,8 @@ export const EmojiSelect = defineComponent({
           'face-glasses',
           'face-concerned',
           'face-negative',
-          'face-costume',
-        ],
+          'face-costume'
+        ]
       ],
       [
         '手势',
@@ -39,8 +39,8 @@ export const EmojiSelect = defineComponent({
           'hand-fingers-closed',
           'hands',
           'hand-prop',
-          'body-parts',
-        ],
+          'body-parts'
+        ]
       ],
       [
         '人物',
@@ -51,8 +51,8 @@ export const EmojiSelect = defineComponent({
           'person-fantasy',
           'person-activity',
           'person-sport',
-          'person-resting',
-        ],
+          'person-resting'
+        ]
       ],
       [
         '动物',
@@ -64,9 +64,9 @@ export const EmojiSelect = defineComponent({
           'animal-amphibian',
           'animal-reptile',
           'animal-marine',
-          'animal-bug',
-        ],
-      ],
+          'animal-bug'
+        ]
+      ]
     ]
     const onClickTab = (index: number) => {
       refSelected.value = index
@@ -84,10 +84,7 @@ export const EmojiSelect = defineComponent({
         emojiList
           .find((item) => item[0] === category)?.[1]
           .map((item) => (
-            <li
-              class={item === props.modelValue ? s.selectedEmoji : ''}
-              onClick={() => onClickEmoji(item)}
-            >
+            <li class={item === props.modelValue ? s.selectedEmoji : ''} onClick={() => onClickEmoji(item)}>
               {item}
             </li>
           ))
@@ -97,10 +94,7 @@ export const EmojiSelect = defineComponent({
       <div class={s.emojiList}>
         <nav>
           {table.map((item, index) => (
-            <span
-              class={index === refSelected.value ? s.selected : ''}
-              onClick={() => onClickTab(index)}
-            >
+            <span class={index === refSelected.value ? s.selected : ''} onClick={() => onClickTab(index)}>
               {item[0]}
             </span>
           ))}
@@ -108,5 +102,5 @@ export const EmojiSelect = defineComponent({
         <ol>{emojis.value}</ol>
       </div>
     )
-  },
+  }
 })

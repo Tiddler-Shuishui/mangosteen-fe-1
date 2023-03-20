@@ -14,11 +14,11 @@ export const SignInPage = defineComponent({
   setup: (props, context) => {
     const formData = reactive({
       email: '',
-      code: '',
+      code: ''
     })
     const errors = reactive({
       email: [],
-      code: [],
+      code: []
     })
     const onError = (error: any) => {
       if (error.response.status === 422) {
@@ -33,7 +33,7 @@ export const SignInPage = defineComponent({
       e.preventDefault()
       Object.assign(errors, {
         email: [],
-        code: [],
+        code: []
       })
       Object.assign(
         errors,
@@ -43,33 +43,23 @@ export const SignInPage = defineComponent({
             key: 'email',
             type: 'pattern',
             regex: /.+@.+/,
-            message: '必须是邮箱地址',
+            message: '必须是邮箱地址'
           },
-          { key: 'code', type: 'required', message: '必填' },
+          { key: 'code', type: 'required', message: '必填' }
         ])
       )
       if (!hasError(errors)) {
-        const response = await http
-          .post<{ jwt: string }>('/session', formData)
-          .catch(onError)
+        const response = await http.post<{ jwt: string }>('/session', formData).catch(onError)
         localStorage.setItem('jwt', response.data.jwt)
         const returnTo = route.query.return_to?.toString()
         refreshMe()
         router.push(returnTo || '/')
       }
     }
-    const {
-      ref: refDisabled,
-      toggle,
-      on: disabled,
-      off: enable,
-    } = useBool(false)
+    const { ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
     const onClickSendValidationCode = async () => {
       disabled()
-      const response = await http
-        .post('/validation_codes', { email: formData.email })
-        .catch(onError)
-        .finally(enable)
+      const response = await http.post('/validation_codes', { email: formData.email }).catch(onError).finally(enable)
       // 成功
       refValidationCode.value.startCount()
     }
@@ -108,9 +98,9 @@ export const SignInPage = defineComponent({
                 </FormItem>
               </Form>
             </div>
-          ),
+          )
         }}
       </MainLayout>
     )
-  },
+  }
 })

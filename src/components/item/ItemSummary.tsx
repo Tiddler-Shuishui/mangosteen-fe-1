@@ -8,11 +8,11 @@ import s from './ItemSummary.module.scss'
 export const ItemSummary = defineComponent({
   props: {
     startDate: {
-      type: String as PropType<string>,
+      type: String as PropType<string>
     },
     endDate: {
-      type: String as PropType<string>,
-    },
+      type: String as PropType<string>
+    }
   },
   setup: (props, context) => {
     const items = ref<Item[]>([])
@@ -26,27 +26,33 @@ export const ItemSummary = defineComponent({
         happen_after: props.startDate,
         happen_before: props.endDate,
         page: page.value + 1,
-        _mock: 'itemIndex',
+        _mock: 'itemIndex'
       })
       const { resources, pager } = response.data
       items.value?.push(...resources)
-      hasMore.value =
-        (pager.page - 1) * pager.per_page + resources.length < pager.count
+      hasMore.value = (pager.page - 1) * pager.per_page + resources.length < pager.count
       page.value += 1
     }
     onMounted(fetchItems)
-    watch(()=>[props.startDate,props.endDate],()=>{
-      items.value = []
-      hasMore.value = false
-      page.value = 0
-      fetchItems()
-    })
+    watch(
+      () => [props.startDate, props.endDate],
+      () => {
+        items.value = []
+        hasMore.value = false
+        page.value = 0
+        fetchItems()
+      }
+    )
     const itemsBalance = reactive({
-      expenses: 0, income: 0, balance: 0
+      expenses: 0,
+      income: 0,
+      balance: 0
     })
-    const fetchItemsBalance = async ()=>{
-      if(!props.startDate || !props.endDate){ return }
-      const response = await http.get('/items/balance',{
+    const fetchItemsBalance = async () => {
+      if (!props.startDate || !props.endDate) {
+        return
+      }
+      const response = await http.get('/items/balance', {
         happen_after: props.startDate,
         happen_before: props.endDate,
         page: page.value + 1,
@@ -55,12 +61,17 @@ export const ItemSummary = defineComponent({
       Object.assign(itemsBalance, response.data)
     }
     onMounted(fetchItemsBalance)
-    watch(()=>[props.startDate,props.endDate],()=>{
-      Object.assign(itemsBalance,{
-        expenses: 0, income: 0, balance: 0
-      })
-      fetchItemsBalance()
-    })
+    watch(
+      () => [props.startDate, props.endDate],
+      () => {
+        Object.assign(itemsBalance, {
+          expenses: 0,
+          income: 0,
+          balance: 0
+        })
+        fetchItemsBalance()
+      }
+    )
     return () => (
       <div class={s.wrapper}>
         {items.value ? (
@@ -68,15 +79,15 @@ export const ItemSummary = defineComponent({
             <ul class={s.total}>
               <li>
                 <span>收入</span>
-                <Money value={itemsBalance.income}/>
+                <Money value={itemsBalance.income} />
               </li>
               <li>
                 <span>支出</span>
-                <Money value={itemsBalance.expenses}/>
+                <Money value={itemsBalance.expenses} />
               </li>
               <li>
                 <span>净收入</span>
-                <Money value={itemsBalance.balance}/>
+                <Money value={itemsBalance.balance} />
               </li>
             </ul>
             <ol class={s.list}>
@@ -100,11 +111,7 @@ export const ItemSummary = defineComponent({
               ))}
             </ol>
             <div class={s.more}>
-              {hasMore.value ? (
-                <Button onClick={fetchItems}>加载更多</Button>
-              ) : (
-                <span>没有更多</span>
-              )}
+              {hasMore.value ? <Button onClick={fetchItems}>加载更多</Button> : <span>没有更多</span>}
             </div>
           </>
         ) : (
@@ -113,5 +120,5 @@ export const ItemSummary = defineComponent({
         <FloatButton iconName="add" />
       </div>
     )
-  },
+  }
 })

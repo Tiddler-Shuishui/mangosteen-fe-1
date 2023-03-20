@@ -6,27 +6,27 @@ import { LineChart } from './LineChart'
 import { PieChart } from './PieChart'
 import { http } from '../../shared/Http'
 
-type Data1Item = {happen_at: string, amount: number}
+type Data1Item = { happen_at: string; amount: number }
 type Data1 = Data1Item[]
 export const Charts = defineComponent({
   props: {
     startDate: {
       type: String as PropType<string>,
-      required: false,
+      required: false
     },
     endDate: {
       type: String as PropType<string>,
-      required: false,
-    },
+      required: false
+    }
   },
   setup: (props, context) => {
     const kind = ref('expenses')
     const data1 = ref<Data1>([])
-    const betterData1 = computed(()=>{
-      return data1.value.map(item=>[item.happen_at, item.amount] as [string, number])
+    const betterData1 = computed(() => {
+      return data1.value.map((item) => [item.happen_at, item.amount] as [string, number])
     })
-    onMounted(async ()=> {
-      const response = await http.get<{groups: Data1, summary: number}>('/item/summary',{
+    onMounted(async () => {
+      const response = await http.get<{ groups: Data1; summary: number }>('/item/summary', {
         happen_after: props.startDate || '',
         happen_before: props.endDate || '',
         kind: kind.value,
@@ -42,7 +42,7 @@ export const Charts = defineComponent({
           v-model={kind.value}
           options={[
             { value: 'expenses', text: '支出' },
-            { value: 'income', text: '收入' },
+            { value: 'income', text: '收入' }
           ]}
         />
         <LineChart data={betterData1.value} />
@@ -50,5 +50,5 @@ export const Charts = defineComponent({
         <Bars />
       </div>
     )
-  },
+  }
 })

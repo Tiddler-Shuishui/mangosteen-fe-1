@@ -1,9 +1,4 @@
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from 'axios'
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import {
   Mock,
   mockItemCreate,
@@ -13,7 +8,7 @@ import {
   mockSession,
   mockTagEdit,
   mockTagIndex,
-  mockTagShow,
+  mockTagShow
 } from '../mock/mock'
 
 type GetConfig = Omit<AxiosRequestConfig, 'params' | 'url' | 'method'>
@@ -27,45 +22,29 @@ export class Http {
     this.instance = axios.create({ baseURL })
   }
   // read
-  get<R = unknown>(
-    url: string,
-    query?: Record<string, string | number>,
-    config?: GetConfig
-  ) {
+  get<R = unknown>(url: string, query?: Record<string, string | number>, config?: GetConfig) {
     return this.instance.request<R>({
       ...config,
       url,
       params: query,
-      method: 'get',
+      method: 'get'
     })
   }
   // create
-  post<R = unknown>(
-    url: string,
-    data?: Record<string, JSONValue>,
-    config?: PostConfig
-  ) {
+  post<R = unknown>(url: string, data?: Record<string, JSONValue>, config?: PostConfig) {
     return this.instance.request<R>({ ...config, url, data, method: 'post' })
   }
   // update
-  patch<R = unknown>(
-    url: string,
-    data?: Record<string, JSONValue>,
-    config?: PatchConfig
-  ) {
+  patch<R = unknown>(url: string, data?: Record<string, JSONValue>, config?: PatchConfig) {
     return this.instance.request<R>({ ...config, url, data, method: 'patch' })
   }
   // destory
-  delete<R = unknown>(
-    url: string,
-    query?: Record<string, string>,
-    config?: DeleteConfig
-  ) {
+  delete<R = unknown>(url: string, query?: Record<string, string>, config?: DeleteConfig) {
     return this.instance.request<R>({
       ...config,
       url,
       params: query,
-      method: 'delete',
+      method: 'delete'
     })
   }
 }
@@ -82,9 +61,7 @@ const mockList: Record<string, Mock> = {
 }
 
 const mock = (response: AxiosResponse) => {
-  if (
-    ['localhost', '127.0.0.1', '192.168.3.57'].indexOf(location.hostname) === -1
-  ) {
+  if (['localhost', '127.0.0.1', '192.168.3.57'].indexOf(location.hostname) === -1) {
     return false
   }
 

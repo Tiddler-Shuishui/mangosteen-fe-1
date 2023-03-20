@@ -8,5 +8,5 @@ export const App = defineComponent({
         <routerView></routerView>
       </div>
     )
-  },
+  }
 })

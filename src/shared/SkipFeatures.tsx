@@ -5,8 +5,8 @@ export const SkipFeatures = defineComponent({
   props: {
     text: {
       type: String,
-      default: '跳过',
-    },
+      default: '跳过'
+    }
   },
   setup: (props, context) => {
     const onClick = () => {
@@ -19,5 +19,5 @@ export const SkipFeatures = defineComponent({
         </RouterLink>
       </span>
     )
-  },
+  }
 })

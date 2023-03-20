@@ -5,8 +5,8 @@ export const FloatButton = defineComponent({
   props: {
     iconName: {
       type: String as PropType<IconName>,
-      required: true,
-    },
+      required: true
+    }
   },
   setup: (props, context) => {
     return () => (
@@ -14,5 +14,5 @@ export const FloatButton = defineComponent({
         <Icon name={props.iconName} class={s.icon} />
       </div>
     )
-  },
+  }
 })

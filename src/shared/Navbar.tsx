@@ -3,8 +3,8 @@ import s from './Navbar.module.scss'
 export const Navbar = defineComponent({
   props: {
     name: {
-      type: String as PropType<string>,
-    },
+      type: String as PropType<string>
+    }
   },
   setup: (props, context) => {
     const { slots } = context
@@ -14,5 +14,5 @@ export const Navbar = defineComponent({
         <span class={s.title_wrapper}>{slots.default?.()}</span>
       </div>
     )
-  },
+  }
 })

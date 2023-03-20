@@ -15,33 +15,14 @@ export const emojiList: EmojiList = [
       '\u{1F643}',
       '\u{1F609}',
       '\u{1F60A}',
-      '\u{1F607}',
-    ],
+      '\u{1F607}'
+    ]
   ],
   [
     'face-affection',
-    [
-      '\u{1F970}',
-      '\u{1F60D}',
-      '\u{1F929}',
-      '\u{1F618}',
-      '\u{1F617}',
-      '\u{263A}',
-      '\u{1F61A}',
-      '\u{1F619}',
-    ],
+    ['\u{1F970}', '\u{1F60D}', '\u{1F929}', '\u{1F618}', '\u{1F617}', '\u{263A}', '\u{1F61A}', '\u{1F619}']
   ],
-  [
-    'face-tongue',
-    [
-      '\u{1F60B}',
-      '\u{1F61B}',
-      '\u{1F61C}',
-      '\u{1F92A}',
-      '\u{1F61D}',
-      '\u{1F911}',
-    ],
-  ],
+  ['face-tongue', ['\u{1F60B}', '\u{1F61B}', '\u{1F61C}', '\u{1F92A}', '\u{1F61D}', '\u{1F911}']],
   ['face-hand', ['\u{1F917}', '\u{1F92D}', '\u{1F92B}', '\u{1F914}']],
   [
     'face-neutral-skeptical',
@@ -55,13 +36,10 @@ export const emojiList: EmojiList = [
       '\u{1F612}',
       '\u{1F644}',
       '\u{1F62C}',
-      '\u{1F925}',
-    ],
+      '\u{1F925}'
+    ]
   ],
-  [
-    'face-sleepy',
-    ['\u{1F60C}', '\u{1F614}', '\u{1F62A}', '\u{1F924}', '\u{1F634}'],
-  ],
+  ['face-sleepy', ['\u{1F60C}', '\u{1F614}', '\u{1F62A}', '\u{1F924}', '\u{1F634}']],
   [
     'face-unwell',
     [
@@ -75,8 +53,8 @@ export const emojiList: EmojiList = [
       '\u{1F976}',
       '\u{1F974}',
       '\u{1F635}',
-      '\u{1F92F}',
-    ],
+      '\u{1F92F}'
+    ]
   ],
   ['face-hat', ['\u{1F920}', '\u{1F973}']],
   ['face-glasses', ['\u{1F60E}', '\u{1F913}', '\u{1F9D0}']],
@@ -106,34 +84,16 @@ export const emojiList: EmojiList = [
       '\u{1F613}',
       '\u{1F629}',
       '\u{1F62B}',
-      '\u{1F971}',
-    ],
+      '\u{1F971}'
+    ]
   ],
   [
     'face-negative',
-    [
-      '\u{1F624}',
-      '\u{1F621}',
-      '\u{1F620}',
-      '\u{1F92C}',
-      '\u{1F608}',
-      '\u{1F47F}',
-      '\u{1F480}',
-      '\u{2620}',
-    ],
+    ['\u{1F624}', '\u{1F621}', '\u{1F620}', '\u{1F92C}', '\u{1F608}', '\u{1F47F}', '\u{1F480}', '\u{2620}']
   ],
   [
     'face-costume',
-    [
-      '\u{1F4A9}',
-      '\u{1F921}',
-      '\u{1F479}',
-      '\u{1F47A}',
-      '\u{1F47B}',
-      '\u{1F47D}',
-      '\u{1F47E}',
-      '\u{1F916}',
-    ],
+    ['\u{1F4A9}', '\u{1F921}', '\u{1F479}', '\u{1F47A}', '\u{1F47B}', '\u{1F47D}', '\u{1F47E}', '\u{1F916}']
   ],
   [
     'cat-face',
@@ -146,8 +106,8 @@ export const emojiList: EmojiList = [
       '\u{1F63D}',
       '\u{1F640}',
       '\u{1F63F}',
-      '\u{1F63E}',
-    ],
+      '\u{1F63E}'
+    ]
   ],
   ['monkey-face', ['\u{1F648}', '\u{1F649}', '\u{1F64A}']],
   [
@@ -187,58 +147,14 @@ export const emojiList: EmojiList = [
       '\u{1F5E8}',
       '\u{1F5EF}',
       '\u{1F4AD}',
-      '\u{1F4A4}',
-    ],
+      '\u{1F4A4}'
+    ]
   ],
-  [
-    'hand-fingers-open',
-    ['\u{1F44B}', '\u{1F91A}', '\u{1F590}', '\u{270B}', '\u{1F596}'],
-  ],
-  [
-    'hand-fingers-partial',
-    [
-      '\u{1F44C}',
-      '\u{1F90F}',
-      '\u{270C}',
-      '\u{1F91E}',
-      '\u{1F91F}',
-      '\u{1F918}',
-      '\u{1F919}',
-    ],
-  ],
-  [
-    'hand-single-finger',
-    [
-      '\u{1F448}',
-      '\u{1F449}',
-      '\u{1F446}',
-      '\u{1F595}',
-      '\u{1F447}',
-      '\u{261D}',
-    ],
-  ],
-  [
-    'hand-fingers-closed',
-    [
-      '\u{1F44D}',
-      '\u{1F44E}',
-      '\u{270A}',
-      '\u{1F44A}',
-      '\u{1F91B}',
-      '\u{1F91C}',
-    ],
-  ],
-  [
-    'hands',
-    [
-      '\u{1F44F}',
-      '\u{1F64C}',
-      '\u{1F450}',
-      '\u{1F932}',
-      '\u{1F91D}',
-      '\u{1F64F}',
-    ],
-  ],
+  ['hand-fingers-open', ['\u{1F44B}', '\u{1F91A}', '\u{1F590}', '\u{270B}', '\u{1F596}']],
+  ['hand-fingers-partial', ['\u{1F44C}', '\u{1F90F}', '\u{270C}', '\u{1F91E}', '\u{1F91F}', '\u{1F918}', '\u{1F919}']],
+  ['hand-single-finger', ['\u{1F448}', '\u{1F449}', '\u{1F446}', '\u{1F595}', '\u{1F447}', '\u{261D}']],
+  ['hand-fingers-closed', ['\u{1F44D}', '\u{1F44E}', '\u{270A}', '\u{1F44A}', '\u{1F91B}', '\u{1F91C}']],
+  ['hands', ['\u{1F44F}', '\u{1F64C}', '\u{1F450}', '\u{1F932}', '\u{1F91D}', '\u{1F64F}']],
   ['hand-prop', ['\u{270D}', '\u{1F485}', '\u{1F933}']],
   [
     'body-parts',
@@ -257,8 +173,8 @@ export const emojiList: EmojiList = [
       '\u{1F440}',
       '\u{1F441}',
       '\u{1F445}',
-      '\u{1F444}',
-    ],
+      '\u{1F444}'
+    ]
   ],
   [
     'person',
@@ -284,8 +200,8 @@ export const emojiList: EmojiList = [
       '\u{1F469}\u{200D}\u{1F9B2}',
       '\u{1F9D3}',
       '\u{1F474}',
-      '\u{1F475}',
-    ],
+      '\u{1F475}'
+    ]
   ],
   [
     'person-gesture',
@@ -319,8 +235,8 @@ export const emojiList: EmojiList = [
       '\u{1F926}\u{200D}\u{2640}\u{FE0F}',
       '\u{1F937}',
       '\u{1F937}\u{200D}\u{2642}\u{FE0F}',
-      '\u{1F937}\u{200D}\u{2640}\u{FE0F}',
-    ],
+      '\u{1F937}\u{200D}\u{2640}\u{FE0F}'
+    ]
   ],
   [
     'person-role',
@@ -379,8 +295,8 @@ export const emojiList: EmojiList = [
       '\u{1F935}',
       '\u{1F470}',
       '\u{1F930}',
-      '\u{1F931}',
-    ],
+      '\u{1F931}'
+    ]
   ],
   [
     'person-fantasy',
@@ -399,7 +315,7 @@ export const emojiList: EmojiList = [
       '\u{1F9D9}\u{200D}\u{2640}\u{FE0F}',
       '\u{1F9DA}',
       '\u{1F9DA}\u{200D}\u{2642}\u{FE0F}',
-      '\u{1F9DA}\u{200D}\u{2640}\u{FE0F}',
-    ],
-  ],
+      '\u{1F9DA}\u{200D}\u{2640}\u{FE0F}'
+    ]
+  ]
 ]

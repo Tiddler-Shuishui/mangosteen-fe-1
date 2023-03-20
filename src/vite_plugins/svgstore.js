@@ -23,23 +23,20 @@ export const svgstore = (options = {}) => {
           let code = fs.readFileSync(filepath, { encoding: 'utf-8' })
           sprites.add(svgid, code)
         }
-        const { data: code } = optimize(
-          sprites.toString({ inline: options.inline }),
-          {
-            plugins: [
-              'cleanupAttrs',
-              'removeDoctype',
-              'removeComments',
-              'removeTitle',
-              'removeDesc',
-              'removeEmptyAttrs',
-              {
-                name: 'removeAttrs',
-                params: { attrs: '(data-name|data-xxx)' },
-              },
-            ],
-          }
-        )
+        const { data: code } = optimize(sprites.toString({ inline: options.inline }), {
+          plugins: [
+            'cleanupAttrs',
+            'removeDoctype',
+            'removeComments',
+            'removeTitle',
+            'removeDesc',
+            'removeEmptyAttrs',
+            {
+              name: 'removeAttrs',
+              params: { attrs: '(data-name|data-xxx)' }
+            }
+          ]
+        })
         return `const div = document.createElement('div')
 div.innerHTML = \`${code}\`
 const svg = div.getElementsByTagName('svg')[0]
@@ -59,6 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })`
       }
-    },
+    }
   }
 }

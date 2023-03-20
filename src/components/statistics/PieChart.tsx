@@ -24,21 +24,21 @@ export const PieChart = defineComponent({
               { value: 735, name: 'Direct' },
               { value: 580, name: 'Email' },
               { value: 484, name: 'Union Ads' },
-              { value: 300, name: 'Video Ads' },
+              { value: 300, name: 'Video Ads' }
             ],
             emphasis: {
               itemStyle: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)',
-              },
-            },
-          },
-        ],
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
       }
       myChart.setOption(option)
     })
 
     return () => <div ref={refDiv2} class={s.wrapper}></div>
-  },
+  }
 })

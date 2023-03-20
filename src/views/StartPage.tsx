@@ -28,9 +28,9 @@ export const StartPage = defineComponent({
                 <FloatButton iconName="add" />
               </RouterLink>
             </>
-          ),
+          )
         }}
       </MainLayout>
     )
-  },
+  }
 })

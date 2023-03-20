@@ -12,18 +12,18 @@ export default defineConfig({
     vue(),
     vueJsx({
       transformOn: true,
-      mergeProps: true,
+      mergeProps: true
     }),
     svgstore(),
     styleImport({
-      resolves: [VantResolve()],
-    }),
+      resolves: [VantResolve()]
+    })
   ],
   server: {
     proxy: {
       '/api/v1': {
-        target: 'http://121.196.236.94:3000/',
-      },
-    },
-  },
+        target: 'http://121.196.236.94:3000/'
+      }
+    }
+  }
 })

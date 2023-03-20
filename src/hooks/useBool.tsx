@@ -6,6 +6,6 @@ export const useBool = (initialValue: boolean) => {
     ref: bool,
     toggle: () => (bool.value = !bool.value),
     on: () => (bool.value = true),
-    off: () => (bool.value = false),
+    off: () => (bool.value = false)
   }
 }

@@ -5,14 +5,14 @@ export const Bars = defineComponent({
     const data3 = reactive([
       { tag: { id: 1, name: '房租', sign: 'x' }, amount: 3000 },
       { tag: { id: 2, name: '吃饭', sign: 'x' }, amount: 1000 },
-      { tag: { id: 3, name: '娱乐', sign: 'x' }, amount: 800 },
+      { tag: { id: 3, name: '娱乐', sign: 'x' }, amount: 800 }
     ])
 
     const betterData3 = computed(() => {
       const total = data3.reduce((sum, item) => sum + item.amount, 0)
       return data3.map((item) => ({
         ...item,
-        percent: Math.round((item.amount / total) * 100) + '%',
+        percent: Math.round((item.amount / total) * 100) + '%'
       }))
     })
     return () => (
@@ -36,5 +36,5 @@ export const Bars = defineComponent({
         ))}
       </div>
     )
-  },
+  }
 })

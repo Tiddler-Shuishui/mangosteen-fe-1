@@ -8,24 +8,24 @@ interface Props {
 export const Button = defineComponent({
   props: {
     onClick: {
-      type: Function as PropType<(e: MouseEvent) => void>,
+      type: Function as PropType<(e: MouseEvent) => void>
     },
     level: {
       type: String as PropType<'important' | 'normal' | 'danger'>,
-      default: 'important',
+      default: 'important'
     },
     type: {
       type: String as PropType<'submit' | 'button'>,
-      default: 'button',
+      default: 'button'
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     autoSelfDisabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   setup: (props, context) => {
     const selfDisabled = ref(false)
@@ -47,14 +47,9 @@ export const Button = defineComponent({
       }, 500)
     }
     return () => (
-      <button
-        disabled={_disabled.value}
-        type={props.type}
-        class={[s.button, s[props.level]]}
-        onClick={onClick}
-      >
+      <button disabled={_disabled.value} type={props.type} class={[s.button, s[props.level]]} onClick={onClick}>
         {context.slots.default?.()}
       </button>
     )
-  },
+  }
 })

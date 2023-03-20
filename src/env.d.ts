@@ -12,13 +12,7 @@ declare module '*.scss' {
   export default content
 }
 
-type JSONValue =
-  | null
-  | boolean
-  | string
-  | number
-  | JSONValue[]
-  | Record<string, JSONValue>
+type JSONValue = null | boolean | string | number | JSONValue[] | Record<string, JSONValue>
 
 type Tag = {
   id: number

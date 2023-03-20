@@ -32,24 +32,24 @@ export const routes: RouteRecordRaw[] = [
       {
         path: '1',
         name: 'Welcome1',
-        components: { main: First, footer: FirstActions },
+        components: { main: First, footer: FirstActions }
       },
       {
         path: '2',
         name: 'Welcome2',
-        components: { main: Second, footer: SecondActions },
+        components: { main: Second, footer: SecondActions }
       },
       {
         path: '3',
         name: 'Welcome3',
-        components: { main: Third, footer: ThirdActions },
+        components: { main: Third, footer: ThirdActions }
       },
       {
         path: '4',
         name: 'Welcome4',
-        components: { main: Forth, footer: ForthActions },
-      },
-    ],
+        components: { main: Forth, footer: ForthActions }
+      }
+    ]
   },
   { path: '/start', component: StartPage },
   {
@@ -57,27 +57,27 @@ export const routes: RouteRecordRaw[] = [
     component: ItemPage,
     children: [
       { path: '', component: ItemList },
-      { path: 'create', component: ItemCreate },
-    ],
+      { path: 'create', component: ItemCreate }
+    ]
   },
   {
     path: '/tags',
     component: TagPage,
     children: [
       { path: 'create', component: TagCreate },
-      { path: ':id/edit', component: TagEdit },
-    ],
+      { path: ':id/edit', component: TagEdit }
+    ]
   },
   {
     path: '/sign_in',
-    component: SignInPage,
+    component: SignInPage
   },
   {
     path: '/statistics',
-    component: StatisticsPage,
+    component: StatisticsPage
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/start',
-  },
+    redirect: '/start'
+  }
 ]

@@ -9,11 +9,11 @@ export const Tags = defineComponent({
   props: {
     kind: {
       type: String as PropType<string>,
-      required: true,
+      required: true
     },
     selected: {
-      type: Number as PropType<number>,
-    },
+      type: Number as PropType<number>
+    }
   },
   emits: ['update:selected'],
   setup: (props, context) => {
@@ -21,7 +21,7 @@ export const Tags = defineComponent({
       http.get<Resources<Tag>>('/tags', {
         kind: props.kind,
         page: page + 1,
-        _mock: 'tagIndex',
+        _mock: 'tagIndex'
       })
     )
     const onSelect = (tag: Tag) => {
@@ -35,16 +35,16 @@ export const Tags = defineComponent({
     }
     const onTouchStart = (e: TouchEvent, tag: Tag) => {
       currentTag.value = e.currentTarget as HTMLDivElement
-      timer.value = setTimeout(()=>{
+      timer.value = setTimeout(() => {
         onLongPress(tag.id)
-      },500)
+      }, 500)
     }
     const onTouchEnd = (e: TouchEvent) => {
       clearTimeout(timer.value)
     }
     const onTouchMove = (e: TouchEvent) => {
       const pointedElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY)
-      if(currentTag.value !== pointedElement && currentTag.value?.contains(pointedElement) === false){
+      if (currentTag.value !== pointedElement && currentTag.value?.contains(pointedElement) === false) {
         clearTimeout(timer.value)
       }
     }
@@ -61,7 +61,7 @@ export const Tags = defineComponent({
             <div
               class={[s.tag, props.selected === tag.id ? s.selected : '']}
               onClick={() => onSelect(tag)}
-              onTouchstart={(e)=>onTouchStart(e, tag)}
+              onTouchstart={(e) => onTouchStart(e, tag)}
               onTouchend={onTouchEnd}
             >
               <div class={s.sign}>{tag.sign}</div>
@@ -80,5 +80,5 @@ export const Tags = defineComponent({
         </div>
       </>
     )
-  },
+  }
 })

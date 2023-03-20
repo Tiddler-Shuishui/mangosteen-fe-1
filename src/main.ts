@@ -14,7 +14,7 @@ const whiteList: Record<string, 'exact' | 'startsWith'> = {
   '/': 'exact',
   '/start': 'exact',
   '/welcome': 'startsWith',
-  '/sign_in': 'startsWith',
+  '/sign_in': 'startsWith'
 }
 
 router.beforeEach((to, form) => {

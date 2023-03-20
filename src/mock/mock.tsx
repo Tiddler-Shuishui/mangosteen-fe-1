@@ -16,10 +16,10 @@ export const mockItemSummary: Mock = (config) => {
         { happen_at: '2022-06-21T00:00:00.000+0800', amount: 0 },
         { happen_at: '2022-06-22T00:00:00.000+0800', amount: 0 },
         { happen_at: '2022-06-23T00:00:00.000+0800', amount: 0 },
-        { happen_at: '2022-06-24T00:00:00.000+0800', amount: 0 },
+        { happen_at: '2022-06-24T00:00:00.000+0800', amount: 0 }
       ],
-      summary: 600,
-    },
+      summary: 600
+    }
   ]
 }
 
@@ -29,8 +29,8 @@ export const mockItemIndexBalance: Mock = (config) => {
     {
       expenses: 9900,
       income: 9900,
-      balance: 0,
-    },
+      balance: 0
+    }
   ]
 }
 
@@ -41,14 +41,14 @@ export const mockItemIndex: Mock = (config) => {
   const createPaper = (page = 1) => ({
     page,
     per_page,
-    count,
+    count
   })
   const createTag = (attrs?: any) => ({
     id: createId(),
     name: faker.lorem.word(),
     sign: faker.internet.emoji(),
     kind: 'expenses',
-    ...attrs,
+    ...attrs
   })
   const createItem = (n = 1, attrs?: any) =>
     Array.from({ length: n }).map(() => ({
@@ -58,7 +58,7 @@ export const mockItemIndex: Mock = (config) => {
       tags_id: [createId()],
       tags: [createTag()],
       happen_at: faker.date.past().toISOString(),
-      kind: config.params.kind,
+      kind: config.params.kind
     }))
   const createBody = (n = 1, attrs?: any) => ({
     resources: createItem(n),
@@ -66,8 +66,8 @@ export const mockItemIndex: Mock = (config) => {
     summary: {
       expenses: 9900,
       income: 9900,
-      balance: 0,
-    },
+      balance: 0
+    }
   })
   if (!page || page === 1) {
     return [200, createBody(25)]
@@ -84,7 +84,7 @@ export const mockTagEdit: Mock = (config) => {
     name: faker.lorem.word(),
     sign: faker.internet.emoji(),
     kind: 'expenses',
-    ...attrs,
+    ...attrs
   })
   return [200, { resource: createTag() }]
 }
@@ -95,7 +95,7 @@ export const mockTagShow: Mock = (config) => {
     name: faker.lorem.word(),
     sign: faker.internet.emoji(),
     kind: 'expenses',
-    ...attrs,
+    ...attrs
   })
   return [200, { resource: createTag() }]
 }
@@ -104,8 +104,8 @@ export const mockSession: Mock = (config) => {
   return [
     200,
     {
-      jwt: faker.random.word(),
-    },
+      jwt: faker.random.word()
+    }
   ]
 }
 
@@ -128,9 +128,9 @@ export const mockItemCreate: Mock = (config) => {
         happen_at: '2020-10-29T16:00:00.000Z',
         created_at: '2020-10-29T16:00:00.000Z',
         updated_at: '2020-10-29T16:00:00.000Z',
-        kind: 'expenses',
-      },
-    },
+        kind: 'expenses'
+      }
+    }
   ]
 }
 
@@ -141,7 +141,7 @@ export const mockTagIndex: Mock = (config) => {
   const createPaper = (page = 1) => ({
     page,
     per_page,
-    count,
+    count
   })
   const createTag = (n = 1, attrs?: any) =>
     Array.from({ length: n }).map(() => ({
@@ -149,11 +149,11 @@ export const mockTagIndex: Mock = (config) => {
       name: faker.lorem.word(),
       sign: faker.internet.emoji(),
       kind: config.params.kind,
-      ...attrs,
+      ...attrs
     }))
   const createBody = (n = 1, attrs?: any) => ({
     resources: createTag(n),
-    pager: createPaper(page),
+    pager: createPaper(page)
   })
 
   if (kind === 'expenses' && (!page || page === 1)) {
