@@ -9,6 +9,7 @@ import {
   mockItemCreate,
   mockItemIndex,
   mockItemIndexBalance,
+  mockItemSummary,
   mockSession,
   mockTagEdit,
   mockTagIndex,
@@ -77,6 +78,7 @@ const mockList: Record<string, Mock> = {
   itemIndex: mockItemIndex,
   session: mockSession,
   itemIndexBalance: mockItemIndexBalance,
+  itemSummary: mockItemSummary
 }
 
 const mock = (response: AxiosResponse) => {
