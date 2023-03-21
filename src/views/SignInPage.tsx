@@ -59,7 +59,10 @@ export const SignInPage = defineComponent({
     const { ref: refDisabled, toggle, on: disabled, off: enable } = useBool(false)
     const onClickSendValidationCode = async () => {
       disabled()
-      const response = await http.post('/validation_codes', { email: formData.email }).catch(onError).finally(enable)
+      const response = await http
+        .post('/validation_codes', { email: formData.email }, { _autoLoading: true })
+        .catch(onError)
+        .finally(enable)
       // 成功
       refValidationCode.value.startCount()
     }
