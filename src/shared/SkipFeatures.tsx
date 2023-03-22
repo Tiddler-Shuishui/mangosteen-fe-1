@@ -14,7 +14,7 @@ export const SkipFeatures = defineComponent({
     }
     return () => (
       <span onClick={onClick}>
-        <RouterLink to="/start" replace>
+        <RouterLink to="/items" replace>
           {props.text}
         </RouterLink>
       </span>
