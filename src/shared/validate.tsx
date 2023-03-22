@@ -32,7 +32,6 @@ export const validate = <T extends FData>(formData: T, rules: Rules<T>) => {
         break
       case 'notEqual':
         if (value === rule.value) {
-          console.log(value)
           errors[key] = errors[key] ?? []
           errors[key]?.push(message)
         }
