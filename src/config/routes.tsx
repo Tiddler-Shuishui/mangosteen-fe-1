@@ -12,10 +12,8 @@ import { SecondActions } from '../components/welcome/SecondActions'
 import { Third } from '../components/welcome/Third'
 import { ThirdActions } from '../components/welcome/ThirdActions'
 import { ComingSoon } from '../shared/ComingSoon'
-import { http } from '../shared/Http'
 import { ItemPage } from '../views/ItemPage'
 import { SignInPage } from '../views/SignInPage'
-import { StartPage } from '../views/StartPage'
 import { StatisticsPage } from '../views/StatisticsPage'
 import { TagPage } from '../views/TagPage'
 import { Welcome } from '../views/Welcome'
@@ -52,7 +50,6 @@ export const routes: RouteRecordRaw[] = [
       }
     ]
   },
-  { path: '/start', component: StartPage },
   {
     path: '/items',
     component: ItemPage,
@@ -87,6 +84,6 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/start'
+    redirect: '/items'
   }
 ]
