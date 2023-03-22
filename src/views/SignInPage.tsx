@@ -7,11 +7,12 @@ import { Button } from '../shared/Button'
 import { Form, FormItem } from '../shared/Form'
 import { http } from '../shared/Http'
 import { Icon } from '../shared/Icon'
-import { refreshMe } from '../shared/me'
 import { hasError, validate } from '../shared/validate'
+import { useMeStore } from '../stores/useMeStore'
 import s from './SignInPage.module.scss'
 export const SignInPage = defineComponent({
   setup: (props, context) => {
+    const meStore = useMeStore() 
     const formData = reactive({
       email: '',
       code: ''
@@ -52,7 +53,7 @@ export const SignInPage = defineComponent({
         const response = await http.post<{ jwt: string }>('/session', formData, { _autoLoading: true }).catch(onError)
         localStorage.setItem('jwt', response.data.jwt)
         const returnTo = route.query.return_to?.toString()
-        refreshMe()
+        meStore.refreshMe()
         router.push(returnTo || '/')
       }
     }
