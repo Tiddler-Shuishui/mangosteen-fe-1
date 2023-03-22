@@ -62,7 +62,7 @@ const mockList: Record<string, Mock> = {
 }
 
 const mock = (response: AxiosResponse) => {
-  if (['localhost', '127.0.0.1', '192.168.3.57'].indexOf(location.hostname) === -1) {
+  if (true || ['localhost', '127.0.0.1', '192.168.3.57'].indexOf(location.hostname) === -1) {
     return false
   }
 

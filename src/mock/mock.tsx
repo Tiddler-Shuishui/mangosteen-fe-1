@@ -81,7 +81,7 @@ export const mockItemIndex: Mock = (config) => {
       id: createId(),
       user_id: createId(),
       amount: Math.floor(Math.random() * 10000),
-      tags_id: [createId()],
+      tag_ids: [createId()],
       tags: [createTag()],
       happen_at: faker.date.past().toISOString(),
       kind: config.params.kind
@@ -150,7 +150,7 @@ export const mockItemCreate: Mock = (config) => {
         user_id: 1312,
         amount: 9990,
         note: null,
-        tags_id: [1204],
+        tag_ids: [1204],
         happen_at: '2020-10-29T16:00:00.000Z',
         created_at: '2020-10-29T16:00:00.000Z',
         updated_at: '2020-10-29T16:00:00.000Z',
