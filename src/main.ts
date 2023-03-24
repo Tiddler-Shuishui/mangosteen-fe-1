@@ -18,7 +18,7 @@ const whiteList: Record<string, 'exact' | 'startsWith'> = {
   '/sign_in': 'startsWith'
 }
 
-router.beforeEach((to, form) => {
+router.beforeEach((to, from) => {
   for (const key in whiteList) {
     const value = whiteList[key]
     if (value === 'exact' && to.path === key) {
@@ -30,7 +30,7 @@ router.beforeEach((to, form) => {
   }
   return mePromise!.value!.then(
     () => true,
-    () => '/sign_in?return_to' + to.path
+    () => '/sign_in?return_to' + from.path
   )
 })
 
