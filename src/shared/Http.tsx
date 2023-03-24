@@ -61,8 +61,12 @@ const mockList: Record<string, Mock> = {
   itemSummary: mockItemSummary
 }
 
+function isDev(){
+  return ['localhost', '127.0.0.1', '192.168.3.57'].includes(location.hostname)
+}
+
 const mock = (response: AxiosResponse) => {
-  if (true || ['localhost', '127.0.0.1', '192.168.3.57'].indexOf(location.hostname) === -1) {
+  if (true || isDev()) {
     return false
   }
 
@@ -74,7 +78,7 @@ const mock = (response: AxiosResponse) => {
   return false
 }
 
-export const http = new Http('/api/v1')
+export const http = new Http(isDev() ? '/api/v1' : 'http://121.196.236.94:3000/api/v1')
 
 http.instance.interceptors.request.use((config) => {
   const jwt = localStorage.getItem('jwt')
