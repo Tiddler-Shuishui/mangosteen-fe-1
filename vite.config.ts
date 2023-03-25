@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import styleImport, { VantResolve } from 'vite-plugin-style-import'
@@ -17,12 +17,33 @@ export default defineConfig({
     svgstore(),
     styleImport({
       resolves: [VantResolve()]
-    })
+    }),
+    splitVendorChunkPlugin()
   ],
   server: {
     proxy: {
       '/api/v1': {
         target: 'http://121.196.236.94:3000/'
+      }
+    }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id: any) {
+          if (id.includes('echarts')) {
+            return 'echarts'
+          }
+          if (id.includes('mock') || id.includes('faker')) {
+            return 'mock'
+          }
+          if (id.includes('vant')) {
+            return 'vant'
+          }
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        }
       }
     }
   }

@@ -11,18 +11,12 @@ import { Second } from '../components/welcome/Second'
 import { SecondActions } from '../components/welcome/SecondActions'
 import { Third } from '../components/welcome/Third'
 import { ThirdActions } from '../components/welcome/ThirdActions'
-import { ComingSoon } from '../shared/ComingSoon'
-import { ItemPage } from '../views/ItemPage'
-import { SignInPage } from '../views/SignInPage'
-import { StatisticsPage } from '../views/StatisticsPage'
-import { TagPage } from '../views/TagPage'
-import { Welcome } from '../views/Welcome'
 
 export const routes: RouteRecordRaw[] = [
   { path: '/', redirect: '/welcome' },
   {
     path: '/welcome',
-    component: Welcome,
+    component: ()=> import('../views/Welcome'),
     beforeEnter: (to, from, next) => {
       localStorage.getItem('skipFeatures') === 'yes' ? next('/items') : next()
     },
@@ -52,7 +46,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/items',
-    component: ItemPage,
+    component: () => import('../views/ItemPage'),
     children: [
       { path: '', component: ItemList },
       { path: 'create', component: ItemCreate }
@@ -60,7 +54,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/tags',
-    component: TagPage,
+    component: () => import('../views/TagPage'),
     children: [
       { path: 'create', component: TagCreate },
       { path: ':id/edit', component: TagEdit }
@@ -68,19 +62,19 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/sign_in',
-    component: SignInPage
+    component: () => import('../views/SignInPage')
   },
   {
     path: '/statistics',
-    component: StatisticsPage
+    component: () => import('../views/StatisticsPage')
   },
   {
     path: '/export',
-    component: ComingSoon
+    component: () => import('../shared/ComingSoon')
   },
   {
     path: '/notify',
-    component: ComingSoon
+    component: () => import('../shared/ComingSoon')
   },
   {
     path: '/:pathMatch(.*)*',

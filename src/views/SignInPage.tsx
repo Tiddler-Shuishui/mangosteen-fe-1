@@ -12,7 +12,7 @@ import { useMeStore } from '../stores/useMeStore'
 import s from './SignInPage.module.scss'
 export const SignInPage = defineComponent({
   setup: (props, context) => {
-    const meStore = useMeStore() 
+    const meStore = useMeStore()
     const formData = reactive({
       email: '',
       code: ''
@@ -108,3 +108,5 @@ export const SignInPage = defineComponent({
     )
   }
 })
+
+export default SignInPage
