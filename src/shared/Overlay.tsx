@@ -24,6 +24,7 @@ export const Overlay = defineComponent({
         message: '你真的要退出登录吗？'
       })
       localStorage.removeItem('jwt')
+      window.location.reload()
     }
     return () => (
       <>
