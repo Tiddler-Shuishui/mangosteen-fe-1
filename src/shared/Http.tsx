@@ -40,11 +40,7 @@ export class Http {
   }
 }
 
-function isDev() {
-  return ['localhost', '127.0.0.1', '192.168.3.57'].includes(location.hostname)
-}
-
-export const http = new Http(isDev() ? '/api/v1' : 'https://mangosteen2.hunger-valley.com/api/v1')
+export const http = new Http(DEBUG ? '/api/v1' : 'https://mangosteen2.hunger-valley.com/api/v1')
 
 http.instance.interceptors.request.use((config) => {
   const jwt = localStorage.getItem('jwt')
@@ -114,13 +110,9 @@ if (DEBUG) {
         itemSummary: mockItemSummary
       }
       const mock = (response: AxiosResponse) => {
-        if (true || isDev()) {
-          return false
-        }
-
         const mockName = response.config?._mock || ''
         if (Object.keys(mockList).includes(mockName)) {
-          ;[response.status, response.data] = mockList[mockName](response.config)
+          [response.status, response.data] = mockList[mockName](response.config)
           return true
         }
         return false
