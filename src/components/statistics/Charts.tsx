@@ -36,13 +36,14 @@ export const Charts = defineComponent({
       return Array.from({ length: n }).map((_, i) => {
         const time = new Time(props.startDate + 'T00:00:00.000+0800').add(i, 'day').getTimestamp()
         const item = data1.value[0]
-        const amount = item && new Date(item.happen_at).getTime() === time ? data1.value.shift()!.amount : 0
+        const amount =
+          item && new Date(item.happen_at + 'T00:00:00.000+0800').getTime() === time ? data1.value.shift()!.amount : 0
         return [new Date(time).toISOString(), amount]
       })
     })
     const fetchData1 = async () => {
       const response = await http.get<{ groups: Data1; summary: number }>(
-        '/item/summary',
+        '/items/summary',
         {
           happen_after: props.startDate || '',
           happen_before: props.endDate || '',
