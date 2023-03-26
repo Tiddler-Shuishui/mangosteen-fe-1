@@ -5,5 +5,3 @@ declare module 'axios' {
     _mock?: string
   }
 }
-
-type Mock = (config: AxiosRequestConfig) => [number, any]
