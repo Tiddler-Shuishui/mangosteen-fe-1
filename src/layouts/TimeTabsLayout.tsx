@@ -76,7 +76,7 @@ export const TimeTabsLayout = defineComponent({
             <>
               {props.hideThisYear ? (
                 <Tabs
-                  classPrefix={'customTabs'}
+                  css={{classPrefix:'customTabs',class: s}}
                   v-model:selected={refSelected.value}
                   onUpdate:selected={onSelect}
                   rerenderOnSelect={props.rerenderOnSwitchTab}
@@ -94,7 +94,7 @@ export const TimeTabsLayout = defineComponent({
                 </Tabs>
               ) : (
                 <Tabs
-                  classPrefix={'customTabs'}
+                css={{classPrefix:'customTabs',class: s}}
                   v-model:selected={refSelected.value}
                   onUpdate:selected={onSelect}
                   rerenderOnSelect={props.rerenderOnSwitchTab}

@@ -70,6 +70,7 @@ export const ItemSummary = defineComponent({
         <div class={s.wrapper}>
           {itemStore.items?.length > 0 ? (
             <>
+            <div class={s.totalWrapper}>
               <ul class={s.total}>
                 <li>
                   <span>收入</span>
@@ -84,6 +85,7 @@ export const ItemSummary = defineComponent({
                   <Money value={itemsBalance.balance} />
                 </li>
               </ul>
+              </div>
               <ol class={s.list}>
                 {itemStore.items.map((item) => (
                   <li>

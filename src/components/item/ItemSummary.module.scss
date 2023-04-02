@@ -1,11 +1,21 @@
+.wrapper{
+  position: relative;
+}
+.totalWrapper{
+  background-color: var(--total-wrapper-bg);
+  padding: 16px;
+  position: sticky;
+  top: 132.8px;
+}
 .total {
   background: var(--total-bg);
   display: flex;
   justify-content: space-between;
   color: var(--total-text);
-  margin: 16px;
+  // margin: 16px;
   border-radius: var(--button-radius);
   padding: 0 16px;
+
   > li {
     padding: 16px;
     display: flex;
@@ -63,6 +73,7 @@
 .more {
   padding-top: 32px;
   text-align: center;
+  padding-bottom: 1em;
 }
 
 .button {
