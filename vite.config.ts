@@ -1,4 +1,5 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import viteCompression from 'vite-plugin-compression';
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import styleImport, { VantResolve } from 'vite-plugin-style-import'
@@ -24,7 +25,10 @@ export default defineConfig(({command}) => {
       styleImport({
         resolves: [VantResolve()]
       }),
-      splitVendorChunkPlugin()
+      splitVendorChunkPlugin(),
+      viteCompression({
+        threshold: 1024000
+      })
     ],
     server: {
       proxy: {
