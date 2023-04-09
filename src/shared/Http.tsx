@@ -90,7 +90,7 @@ http.instance.interceptors.response.use(
   }
 )
 
-if (isMocking || DEBUG) {
+if (isMocking && DEBUG) {
   import('../mock/mock').then(
     ({
       mockItemCreate,
