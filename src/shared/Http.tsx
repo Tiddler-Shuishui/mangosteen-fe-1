@@ -7,6 +7,9 @@ type PostConfig = Omit<AxiosRequestConfig, 'url' | 'data' | 'method'>
 type PatchConfig = Omit<AxiosRequestConfig, 'url' | 'data'>
 type DeleteConfig = Omit<AxiosRequestConfig, 'params'>
 
+// 是否启用 mock
+const isMocking = false
+
 export class Http {
   instance: AxiosInstance
   constructor(baseURL: string) {
@@ -87,7 +90,7 @@ http.instance.interceptors.response.use(
   }
 )
 
-if (DEBUG) {
+if (isMocking || DEBUG) {
   import('../mock/mock').then(
     ({
       mockItemCreate,
