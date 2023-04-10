@@ -1,5 +1,5 @@
 import { DatetimePicker, Popup } from 'vant'
-import { computed, defineComponent, PropType, ref, VNode } from 'vue'
+import { computed, defineComponent, PropType, ref } from 'vue'
 import { Button } from './Button'
 import { EmojiSelect } from './EmojiSelect'
 import s from './Form.module.scss'
@@ -28,6 +28,14 @@ export const FormItem = defineComponent({
     },
     modelValue: {
       type: [String, Number, Date]
+    },
+    minDate: {
+      type: [String, Date],
+      default: '2020-01-01T00:00:00.000+0800'
+    },
+    maxDate: {
+      type: [String, Date],
+      default: '2025-05-01T00:00:00.000+0800'
     },
     type: {
       type: String as PropType<'text' | 'emojiSelect' | 'date' | 'validationCode' | 'select'>
@@ -107,6 +115,8 @@ export const FormItem = defineComponent({
                   modelValue={props.modelValue ? new Date(props.modelValue) : new Date()}
                   type="date"
                   title="选择年月日"
+                  min-date={new Date(props.minDate)}
+                  max-date={new Date(props.maxDate)}
                   onConfirm={(date: Date) => {
                     context.emit('update:modelValue', new Time(date).format())
                     refDateVisible.value = false

@@ -28,7 +28,7 @@ export const Overlay = defineComponent({
     }
     return () => (
       <>
-        <div class={s.mask} onClick={close}></div>
+        <div class={s.mask} onClick={props.onClose}></div>
         <div class={s.overlay}>
           <section class={s.currentUser}>
             {me.value ? (
@@ -45,19 +45,19 @@ export const Overlay = defineComponent({
           </section>
           <nav>
             <ul class={s.action_list}>
-            <li>
+            <li onClick={props.onClose}>
                 <RouterLink to="/items" class={s.action}>
                   <Icon name="pig" class={s.icon} />
                   <span>记账明细</span>
                 </RouterLink>
               </li>
-              <li>
+              <li onClick={props.onClose}>
                 <RouterLink to="/statistics" class={s.action}>
                   <Icon name="charts" class={s.icon}></Icon>
                   <span>统计图表</span>
                 </RouterLink>
               </li>
-              <li>
+              <li onClick={props.onClose}>
                 <RouterLink to="/export" class={s.action}>
                   <Icon name="export" class={s.icon}></Icon>
                   <span>导出数据</span>
@@ -69,7 +69,7 @@ export const Overlay = defineComponent({
                   <span>自定义分类</span>
                 </RouterLink>
               </li> */}
-              <li>
+              <li onClick={props.onClose}>
                 <RouterLink to="/notify" class={s.action}>
                   <Icon name="notify" class={s.icon}></Icon>
                   <span>记账提醒</span>

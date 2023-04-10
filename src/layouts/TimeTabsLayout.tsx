@@ -118,8 +118,8 @@ export const TimeTabsLayout = defineComponent({
                   <header>请选择时间</header>
                   <main>
                     <Form onSubmit={onSubmitCustomTime}>
-                      <FormItem label="开始时间" v-model={tempTime.start} type="date"></FormItem>
-                      <FormItem label="结束时间" v-model={tempTime.end} type="date" />
+                      <FormItem label="开始时间" v-model={tempTime.start} maxDate={tempTime.end} type="date"></FormItem>
+                      <FormItem label="结束时间" v-model={tempTime.end} minDate={tempTime.start} type="date" />
                       <FormItem>
                         <div class={s.actions}>
                           <button type="button" onClick={() => (refOverlayVisible.value = false)}>
